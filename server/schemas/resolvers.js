@@ -1,6 +1,6 @@
 const { Book, User } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
-const { signToken } = require('../utils/auth')
+// const { signToken } = require('../utils/auth')
 
 const resolvers = {
     Query: {
@@ -17,7 +17,7 @@ const resolvers = {
     Mutation: {
         addUser: async (parent, args) => {
             const user = await User.create(args);
-            const token = signToken(user);
+            // const token = signToken(user);
 
             return { token, user}
         },
@@ -32,7 +32,7 @@ const resolvers = {
                 throw new AuthenticationError('invalid creds');
             }
 
-            const token = signToken(user);
+            // const token = signToken(user);
             return { token, user };
         },
 
