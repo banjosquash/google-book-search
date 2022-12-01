@@ -15,7 +15,7 @@ const server = new ApolloServer({
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Create a new instance of an Apollo server with the GraphQL schema
