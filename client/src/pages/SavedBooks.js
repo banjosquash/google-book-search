@@ -10,7 +10,7 @@ import { useMutation, useQuery } from '@apollo/client'
 
 const SavedBooks = () => {
   const  { loading, data } = useQuery(GET_ME);
-  const [deleteBook, { error }] = useMutation(REMOVE_BOOK);
+  const [removeBook, { error }] = useMutation(REMOVE_BOOK);
   const userData = data?.me || {};
 
   if(!userData?.username) {
@@ -31,7 +31,7 @@ const SavedBooks = () => {
     }
 
     try {
-      await deleteBook({
+      await removeBook({
         variables: {bookId: bookId},
       });
 
